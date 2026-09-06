@@ -2,13 +2,25 @@
 import socket
 
 # Socket creation
-socket.socket()
+s = socket.socket()
+
+ # define the port
+port = 443
 
 # user input 
 host = input("Enter a hostname: ")
 
-# hostname ip search
-ip = socket.gethostbyname(host)
+# tries the connection and shows its diagnosis
+try:
+    ip = socket.gethostbyname(host)
 
-# program output
-print(f"Hostname: {host} | IP:{ip}")
+    s.connect((ip, port))
+    print(f"Hostname: {host} \nIP:{ip} \nPort: {port}")
+
+except:
+    print("Connection failed")
+    
+
+
+
+
